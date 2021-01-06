@@ -1,0 +1,2 @@
+class GradingStandard < ApplicationRecord
+end

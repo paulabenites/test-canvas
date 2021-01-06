@@ -1,0 +1,24 @@
+<h1>Grading Standards</h1>
+
+
+<table>
+    <tr>
+        <thead>
+            <th>Titulo</th>
+            <th>Descripcion</th>
+            <th>Calificacion</th>
+        </thead>
+    </tr>
+
+    <% @grading_standards.each do |valor| %>
+    <tr>
+        <td> <%= valor.title %> </td>
+        <td> <%= valor.data %>  </td>
+        <td> <%= valor.usage_count %>  </td>
+    </tr>
+
+    <% end %>
+
+
+</table>
+
