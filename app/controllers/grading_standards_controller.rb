@@ -1,33 +1,44 @@
 class GradingStandardsController < ApplicationController
   def index
-    @grading_standards = GradingStandard.all
+    @grading_standard = GradingStandard.all
   end
 
   def new
-    @grading_standards = GradingStandard.new
+    @grading_standard = GradingStandard.new
+  end
+
+  def create
+
+    @grading_standard = GradingStandard.new(grading_standard_params)
+    if @grading_standard.save
+        redirect_to grading_standards_path
+    else
+        render :new
+    end
+
   end
 
   def edit
-    @grading_standards = GradingStandard.find(params[:id])
+    @grading_standard = GradingStandard.find(params[:id])
   end
 
   def update
-    @grading_standards = GradingStandard.find(params[:id])
-    if @grading_standards.update(grading_params)
-      redirect_to grading_standars_path
+    @grading_standard = GradingStandard.find(params[:id])
+    if @grading_standard.update(grading_standard_params)
+      redirect_to grading_standards_path
     else
       render :edit
     end
   end
 
-  def delete
+  def destroy
     @grading_standards = GradingStandard.find(params[:id])
     @grading_standards.destroy
-    redirect_to grading_standars_path
+    redirect_to grading_standards_path
   end
 
   private
-  def grading_params
-    params.require(:grading_standards).permit(:title, :data, :usage_count)
+  def grading_standard_params
+    params.require(:grading_standard).permit(:title, :data, :usage_count)
   end
 end

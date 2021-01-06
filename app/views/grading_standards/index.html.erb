@@ -1,5 +1,8 @@
 <h1>Grading Standards</h1>
 
+<div>
+    <%= link_to "Nueva Nota", grading_standards_new_path() %>
+</div>
 
 <table>
     <tr>
@@ -10,13 +13,13 @@
         </thead>
     </tr>
 
-    <% @grading_standards.each do |valor| %>
+    <% @grading_standard.each do |valor| %>
     <tr>
         <td> <%= valor.title %> </td>
         <td> <%= valor.data %>  </td>
         <td> <%= valor.usage_count %>  </td>
         <td>
-            <%= link_to "Editar", edit_grading_standars_path(valor) %>
+            <%= link_to "Editar", edit_grading_standard_path(valor) %>
             <%= link_to "Eliminar", valor, method: :delete, data:{confirm:"¿Desea eliminar dicha nota?"} %>
         </td>
     </tr>
