@@ -1,2 +1,19 @@
 <h1>GradingStandards#edit</h1>
 <p>Find me in app/views/grading_standards/edit.html.erb</p>
+<%= form_for @grading_standards do |f| %>
+    <div>
+        <%= f.label :title %>
+        <%= f.text_area :title %>
+    </div>
+    <div>
+        <%= f.label :data %>
+        <%= f.text_area :data %>
+    </div>
+    <div>
+        <%= f.label :usage_count %>
+        <%= f.number_field :usage_count %>
+    </div>
+    <div>
+        <%= f.submit %>
+    </div>
+<% end %>
